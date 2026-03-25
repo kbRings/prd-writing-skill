@@ -62,16 +62,20 @@ Do not stop at "analysis only" unless the user explicitly asks for analysis only
 
 - Preserve the user's heading style and tone if reference docs exist.
 - For child PRDs, keep the main line as page flow, not system architecture.
+- Prefer a light structure when the user's docs are light.
+- Split the child PRD directly by page or section instead of adding extra summary sections.
 - Use tables for `元素 / 类型 / 说明` whenever the page has multiple controls.
 - Treat prototypes and screenshots as primary evidence for page layout, flow, states, and controls.
 - Treat requirement text as primary evidence for business goals, rules, constraints, and scope.
-- Write explicit rules for:
-  - default state
-  - available/unavailable conditions
-  - element linkage
-  - validation rules
-  - error prompts
-  - completion state
+- Put interaction details into the element table when possible instead of creating too many standalone sections.
+- Default child PRD shape should be close to:
+  - `一、功能列表`
+  - `二、功能详细说明`
+  - feature or page section such as `首页`
+  - `页面布局`
+  - `页面元素说明`
+  - `交互元素说明`
+- Only add extra sections such as `工作流程` `流程图说明` `泳道图说明` `接口说明` `校验与限制说明` when the requirement complexity clearly needs them.
 - If the original doc system is light-weight, do not force a heavy template.
 
 ## Inputs to Request or Infer
@@ -105,6 +109,18 @@ If the PRD should include process expression:
 - add `泳道图说明` for multi-role or multi-system collaboration
 
 Do not claim you can create a Feishu whiteboard unless a tool explicitly supports it. If needed, provide structured diagram content inside the PRD first.
+
+## Style Priority
+
+If the user has already edited a generated Feishu PRD and asks you to learn from it, treat that edited version as the latest style source of truth.
+
+Current preferred child PRD style is:
+
+1. short structure
+2. page-first organization
+3. minimal narrative explanation
+4. most interaction details embedded in the element table
+5. page layout represented by the provided prototype or screenshot
 
 ## Output Standard
 
