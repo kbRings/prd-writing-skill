@@ -29,10 +29,15 @@ Do not use this skill for technical design docs, implementation plans, or code a
    - child PRD
    - both
 3. Prefer the user's established hierarchy over a generic template.
-4. If the input includes prototypes, screenshots, or existing pages, extract page flow, controls, states, and validation points from them.
-5. Combine prototype evidence with the user's requirement description to infer PRD structure and content.
-6. If inputs are incomplete, draft the document anyway and mark unresolved items as `待确认`.
-7. Unless the user explicitly asks for discussion only, create the Feishu doc directly with Feishu MCP.
+4. During requirement confirmation and alignment, explicitly follow the brainstorming style:
+   - ask one question at a time
+   - prefer multiple-choice questions
+   - use the answers to narrow scope before writing
+5. If the input includes prototypes, screenshots, or existing pages, extract page flow, controls, states, and validation points from them.
+6. Combine prototype evidence with the user's requirement description to infer PRD structure and content.
+7. If inputs are incomplete, do not jump straight to the PRD. First run a requirement-alignment pass and collect missing decisions.
+8. If unresolved items remain after alignment, draft the document anyway and mark them as `待确认`.
+9. Unless the user explicitly asks for discussion only, create the Feishu doc directly with Feishu MCP.
 
 ## Default Two-Layer Structure
 
@@ -57,6 +62,24 @@ From that input, produce:
 3. the Feishu doc output
 
 Do not stop at "analysis only" unless the user explicitly asks for analysis only.
+
+## Requirement Alignment Mode
+
+Before writing the PRD, the default behavior is to run a requirement-alignment stage.
+
+This stage should follow the brainstorming interaction pattern:
+
+1. understand the materials first
+2. ask one question at a time
+3. prefer multiple-choice questions over broad open questions
+4. use the conversation to narrow:
+   - scope
+   - target users
+   - page boundaries
+   - rules
+   - open decisions
+
+Only after that alignment should the skill move into PRD drafting, unless the user explicitly skips alignment.
 
 ## Writing Rules
 
@@ -93,6 +116,13 @@ Prefer inferring from prototypes, screenshots, and existing docs. If information
 
 If the user gives only screenshots plus a short requirement note, still proceed.
 
+When asking for missing information during alignment:
+
+- ask one question at a time
+- prefer options such as `A / B / C`
+- avoid dumping a long list of questions in a single message
+- use the user's answer to update the next question
+
 ## Feishu Rules
 
 - If the user asks to "look at my Feishu doc first", use Feishu MCP to search, resolve the node, and read the raw content before drafting.
@@ -121,6 +151,17 @@ Current preferred child PRD style is:
 3. minimal narrative explanation
 4. most interaction details embedded in the element table
 5. page layout represented by the provided prototype or screenshot
+
+## Brainstorming Dependency
+
+This skill depends on the behavior of the `brainstorming` skill during requirement confirmation.
+
+That means:
+
+1. requirement confirmation should be conversational
+2. questions should be sequential, not dumped all at once
+3. multiple-choice questions are preferred when practical
+4. the PRD should only be written after the requirement has been aligned enough to avoid obvious ambiguity
 
 ## Output Standard
 
