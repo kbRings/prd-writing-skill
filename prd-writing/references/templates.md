@@ -56,7 +56,10 @@ Prefer embedding click behavior, hover behavior, and target page routing directl
 
 If details are missing, keep momentum:
 
-- draft the structure
+- first run a requirement-alignment pass
+- ask one question at a time
+- prefer multiple-choice clarification
+- then draft the structure
 - fill with known facts from prototype or existing docs
 - mark unresolved details as `待确认`
 
@@ -71,3 +74,16 @@ Based on the latest corrected Feishu PRD examples, prefer:
 3. short page summaries
 4. interaction notes expressed inside the element table
 5. using the supplied image as the `页面布局`
+
+## 6. Requirement Alignment Questions
+
+When materials are not enough for direct drafting, the preferred question style is:
+
+1. one question at a time
+2. multiple choice when practical
+3. questions aimed at narrowing:
+   - scope
+   - user target
+   - page ownership
+   - business rules
+   - open implementation decisions
