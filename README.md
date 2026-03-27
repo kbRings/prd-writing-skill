@@ -26,6 +26,19 @@ The skill should then:
 4. PRD writing
 5. Feishu doc output
 
+## Requirement Alignment Mode
+
+Before writing the PRD, this skill should first run a requirement-alignment stage.
+
+This stage should follow a brainstorming-style interaction pattern:
+
+1. ask one question at a time
+2. prefer multiple-choice questions when practical
+3. use each answer to narrow scope before asking the next question
+4. avoid dumping a long list of questions in a single message
+
+This is intended to make requirement confirmation easier for the user and reduce ambiguity before drafting the PRD.
+
 ## Writing Style
 
 This skill follows a two-layer documentation style:
@@ -65,7 +78,7 @@ Whether the repository must be public depends on how your OpenClaw cloud instanc
 1. if it only supports public repository install or public hub install, the repo must be public
 2. if it supports authenticated GitHub access to private repositories, the repo can stay private
 
-This repository is now public so it is easier to consume from cloud tools.
+This repository is public so it is easier to consume from cloud tools.
 
 ## Feishu MCP Requirement
 
