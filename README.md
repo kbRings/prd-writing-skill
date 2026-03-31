@@ -80,6 +80,48 @@ Whether the repository must be public depends on how your OpenClaw cloud instanc
 
 This repository is public so it is easier to consume from cloud tools.
 
+## Using This In WorkBuddy
+
+If WorkBuddy installs the skill by executing shell commands such as:
+
+1. `rm -rf <dir>`
+2. `git clone ...`
+
+it may label the install flow as high risk.
+
+This warning is usually caused by the installer command, not by the content of this skill repository.
+
+This repository contains documentation files only:
+
+1. `SKILL.md`
+2. reference markdown files
+3. `README.md`
+
+It does not include install scripts, shell execution logic, or binary payloads.
+
+### Recommended safer install approach for WorkBuddy
+
+If WorkBuddy supports custom install behavior, prefer:
+
+1. cloning into a new temporary directory instead of deleting with `rm -rf`
+2. downloading repository files directly without shell cleanup
+3. importing the skill from repository contents instead of running destructive shell commands
+
+For example, using a temp directory is usually safer than:
+
+```bash
+rm -rf /tmp/prd-writing-skill && git clone ...
+```
+
+A safer pattern is:
+
+```bash
+tmpdir=$(mktemp -d)
+git clone <repo> "$tmpdir"
+```
+
+This keeps the install behavior lower risk while preserving the same repository contents.
+
 ## Feishu MCP Requirement
 
 This skill can work in two modes.
