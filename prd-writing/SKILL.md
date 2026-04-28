@@ -38,6 +38,8 @@ Do not use this skill for technical design docs, implementation plans, or code a
 7. If inputs are incomplete, do not jump straight to the PRD. First run a requirement-alignment pass and collect missing decisions.
 8. If unresolved items remain after alignment, draft the document anyway and mark them as `待确认`.
 9. Unless the user explicitly asks for discussion only, create the Feishu doc directly with Feishu MCP.
+10. If prototype screenshots or page-layout images are available, insert them into the final Feishu doc after the matching `页面布局` heading when the available Feishu CLI flow supports it.
+11. If a process diagram is needed and Feishu native whiteboard tooling is available, prefer embedding a native whiteboard block over leaving only text-based flow notes.
 
 ## Default Two-Layer Structure
 
@@ -60,6 +62,7 @@ From that input, produce:
 1. the PRD structure
 2. the written PRD content
 3. the Feishu doc output
+4. the matching prototype image insertion when images are available and the toolchain supports it
 
 Do not stop at "analysis only" unless the user explicitly asks for analysis only.
 
@@ -116,6 +119,7 @@ Prefer inferring from prototypes, screenshots, and existing docs. If information
 - 需求背景
 - 需求目标
 - 原型链接或截图
+- 页面布局图片或原型截图
 - 核心流程
 - 关键规则
 - 本期不做
@@ -134,8 +138,25 @@ When asking for missing information during alignment:
 - If the user asks to "look at my Feishu doc first", use Feishu MCP to search, resolve the node, and read the raw content before drafting.
 - If Feishu auth expires, get the user to re-authorize and resume.
 - You can create Feishu docs directly.
+- If Feishu CLI is configured and authenticated, you can also:
+  - insert local prototype or screenshot images into the Feishu doc after drafting
+  - place images under the matching `页面布局` heading when the PRD structure is clear enough
+  - create or update native Feishu whiteboards for process diagrams
 - Do not claim you can place docs into a Feishu knowledge-base tree unless the available MCP actually supports that operation.
 - If the user asks for final output, prefer returning the Feishu doc link rather than only pasting the PRD in chat.
+
+When using Feishu CLI for image insertion:
+
+1. generate the PRD body first
+2. map each prototype image to the matching page section
+3. insert each image under the corresponding `页面布局` heading
+4. if exact placement is ambiguous, ask one focused question or state the inferred placement briefly
+
+When using Feishu CLI for process diagrams:
+
+1. prefer native whiteboard blocks for Mermaid-based flowcharts, decision diagrams, and state diagrams
+2. if native whiteboard is unavailable, fall back to structured `流程图说明` or a static image
+3. do not promise formal swimlane rendering unless the chosen toolchain truly supports it
 
 ## Diagram Rules
 
@@ -151,6 +172,7 @@ If the PRD should include process expression:
 - prefer a pseudo-swimlane structure for multi-role or multi-system flows when Mermaid is still sufficient
 - if the process clearly involves many roles, systems, or parallel responsibilities, call out that a formal swimlane diagram is more suitable than a plain flowchart
 - do not force every need into the same diagram type; choose based on process shape
+- if the diagram can live as a native Feishu whiteboard, prefer that over a static screenshot
 
 Before drafting a diagram, classify the need using these defaults:
 
@@ -180,6 +202,23 @@ The default diagram strategy is:
 5. only skip diagrams when the requirement is too trivial to benefit from one
 
 Do not claim you can create a Feishu whiteboard unless a tool explicitly supports it. If needed, provide structured diagram content inside the PRD first.
+
+## Image And Layout Rules
+
+When the user provides prototype images or screenshots:
+
+1. treat them as evidence for page structure and layout
+2. map each image to the matching page section in the PRD
+3. after the PRD text is generated, insert the image under the corresponding `页面布局` heading when Feishu CLI is available
+4. if multiple screenshots belong to one page, preserve their order and use short captions when helpful
+5. if an image only illustrates part of a page, still place it near the matching page section instead of dropping it at the end of the doc
+
+Default layout-image strategy:
+
+1. generate PRD body
+2. identify each `页面布局` section
+3. insert the matching image under that section
+4. then add any process whiteboard or flowchart content
 
 ## Style Priority
 

@@ -17,6 +17,8 @@ The skill should then:
 2. align on scope and open questions before writing
 3. generate a PRD in the user's established style
 4. output the final result to Feishu when Feishu MCP is available
+5. insert matching prototype images into the PRD when Feishu CLI image insertion is available
+6. use Feishu native whiteboards for suitable process diagrams when the toolchain supports it
 
 ## Default Flow
 
@@ -157,6 +159,19 @@ To generate Feishu documents directly, you need:
 
 In practice, that means your runtime environment must already have Feishu MCP installed and authenticated.
 
+## Feishu CLI Enhancement
+
+If Feishu CLI is also configured and authenticated, this skill can go beyond plain doc creation:
+
+1. insert prototype or screenshot images under the matching `页面布局` heading
+2. keep page-layout evidence inside the final Feishu PRD instead of leaving image placeholders only
+3. create or update native Feishu whiteboards for normal flowcharts, decision diagrams, state diagrams, and light pseudo-swimlane diagrams
+
+This means the most complete workflow is:
+
+1. Feishu MCP for reading existing docs and creating the new doc
+2. Feishu CLI for post-processing the doc with layout images and native whiteboard diagrams
+
 ## Expected Inputs
 
 The skill should proceed even if the user only gives part of the information.
@@ -182,6 +197,8 @@ Depending on available tools and the user's request, this skill should produce o
 3. version overview doc
 4. child PRD doc
 5. Feishu PRD document link
+6. Feishu PRD with inserted prototype images
+7. Feishu PRD with native whiteboard process diagrams
 
 ## Notes
 

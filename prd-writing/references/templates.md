@@ -119,3 +119,24 @@ Prefer Feishu native whiteboard plus Mermaid for:
 4. light pseudo-swimlane diagrams
 
 If the process is clearly more suitable for a formal swimlane diagram than Mermaid can express cleanly, say so explicitly instead of forcing a weak diagram.
+
+## 9. Prototype Image Placement Defaults
+
+When prototype screenshots or page-layout images are available:
+
+1. generate the PRD text first
+2. match each image to the corresponding page section
+3. insert the image under that page section's `页面布局`
+4. keep multiple images for one page in source order
+
+If the toolchain supports Feishu CLI image insertion, prefer placing the image in the final Feishu doc instead of leaving only a placeholder filename.
+
+## 10. Feishu Native Diagram Defaults
+
+When the selected diagram type is a normal flowchart, decision flowchart, state diagram, or light pseudo-swimlane:
+
+1. prefer Feishu native whiteboard blocks
+2. use Mermaid as the default diagram source
+3. keep the default orientation vertical unless the user asks otherwise
+
+If a process diagram is too complex for Mermaid to remain clear, say that a formal swimlane diagram is more appropriate instead of forcing a weak whiteboard rendering.
