@@ -37,7 +37,7 @@ Do not use this skill for technical design docs, implementation plans, or code a
 6. Combine prototype evidence with the user's requirement description to infer PRD structure and content.
 7. If inputs are incomplete, do not jump straight to the PRD. First run a requirement-alignment pass and collect missing decisions.
 8. If unresolved items remain after alignment, draft the document anyway and mark them as `待确认`.
-9. Unless the user explicitly asks for discussion only, create the Feishu doc directly with Feishu MCP.
+9. Unless the user explicitly asks for discussion only, create the Feishu doc directly with Feishu CLI.
 10. If prototype screenshots or page-layout images are available, insert them into the final Feishu doc after the matching `页面布局` heading when the available Feishu CLI flow supports it.
 11. If a process diagram is needed and Feishu native whiteboard tooling is available, prefer embedding a native whiteboard block over leaving only text-based flow notes.
 
@@ -135,14 +135,15 @@ When asking for missing information during alignment:
 
 ## Feishu Rules
 
-- If the user asks to "look at my Feishu doc first", use Feishu MCP to search, resolve the node, and read the raw content before drafting.
+- If the user asks to "look at my Feishu doc first", use Feishu CLI to fetch the existing doc content before drafting when the CLI environment supports it.
 - If Feishu auth expires, get the user to re-authorize and resume.
-- You can create Feishu docs directly.
-- If Feishu CLI is configured and authenticated, you can also:
-  - insert local prototype or screenshot images into the Feishu doc after drafting
-  - place images under the matching `页面布局` heading when the PRD structure is clear enough
-  - create or update native Feishu whiteboards for process diagrams
-- Do not claim you can place docs into a Feishu knowledge-base tree unless the available MCP actually supports that operation.
+- Use Feishu CLI as the default and preferred toolchain for:
+  - creating Feishu docs
+  - reading existing Feishu docs as style references
+  - inserting local prototype or screenshot images after drafting
+  - placing images under the matching `页面布局` heading when the PRD structure is clear enough
+  - creating or updating native Feishu whiteboards for process diagrams
+- Do not claim you can place docs into a Feishu knowledge-base tree unless the available toolchain actually supports that operation.
 - If the user asks for final output, prefer returning the Feishu doc link rather than only pasting the PRD in chat.
 
 When using Feishu CLI for image insertion:
