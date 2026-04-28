@@ -78,6 +78,12 @@ This stage should follow the brainstorming interaction pattern:
    - page boundaries
    - rules
    - open decisions
+5. if the PRD may need diagrams, decide the diagram type before drafting:
+   - normal flowchart
+   - decision flowchart
+   - state diagram
+   - pseudo-swimlane diagram
+   - formal swimlane diagram
 
 Only after that alignment should the skill move into PRD drafting, unless the user explicitly skips alignment.
 
@@ -137,6 +143,41 @@ If the PRD should include process expression:
 
 - add `流程图说明` for single-thread user flow
 - add `泳道图说明` for multi-role or multi-system collaboration
+- default diagram direction is vertical unless the user asks otherwise
+- prefer Feishu native whiteboard plus Mermaid for:
+  - normal flowcharts
+  - decision flowcharts
+  - state diagrams
+- prefer a pseudo-swimlane structure for multi-role or multi-system flows when Mermaid is still sufficient
+- if the process clearly involves many roles, systems, or parallel responsibilities, call out that a formal swimlane diagram is more suitable than a plain flowchart
+- do not force every need into the same diagram type; choose based on process shape
+
+Before drafting a diagram, classify the need using these defaults:
+
+1. `普通流程图`
+   - use when a single user or single role drives the main flow
+   - use when the main value is step order, page transitions, or action sequence
+2. `决策流程图`
+   - use when conditional branches are the core of the process
+   - use when the flow contains repeated `是否` or rule-based branching
+3. `状态图`
+   - use when the core question is how an object changes state over time
+   - use for drafts, approvals, generation states, order states, and similar lifecycle needs
+4. `伪泳道图`
+   - use when multiple roles, clients, or systems participate
+   - use when Mermaid can still express responsibility boundaries clearly enough through grouped sections
+5. `正式泳道图`
+   - use when more than three participants or systems are involved
+   - use when ownership boundaries, parallel tracks, or cross-system handoffs are central
+   - if the toolchain is still light-weight, explain that the requirement is better suited to a formal swimlane diagram even if the current output remains a pseudo-swimlane
+
+The default diagram strategy is:
+
+1. first check whether the process is primarily a state problem
+2. then check whether it is multi-role or multi-system
+3. if yes, decide whether pseudo-swimlane is enough
+4. if not, choose between normal flowchart and decision flowchart
+5. only skip diagrams when the requirement is too trivial to benefit from one
 
 Do not claim you can create a Feishu whiteboard unless a tool explicitly supports it. If needed, provide structured diagram content inside the PRD first.
 

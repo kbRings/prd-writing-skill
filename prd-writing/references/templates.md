@@ -87,3 +87,35 @@ When materials are not enough for direct drafting, the preferred question style 
    - page ownership
    - business rules
    - open implementation decisions
+
+## 7. Diagram Selection Defaults
+
+When the requirement may need a process diagram, choose the lightest diagram that still explains the workflow clearly.
+
+1. `普通流程图`
+Use when a single role or single user drives the process and the core problem is action order.
+
+2. `决策流程图`
+Use when branching logic is the core of the requirement and multiple `是否` decisions drive the path.
+
+3. `状态图`
+Use when the main subject is object lifecycle or status transition rather than step-by-step user actions.
+
+4. `伪泳道图`
+Use when multiple roles, clients, or systems participate but the workflow can still be expressed clearly in Mermaid through grouped sections.
+
+5. `正式泳道图`
+Use when responsibility ownership, cross-system handoffs, or parallel tracks are central and a normal flowchart would become confusing.
+
+## 8. Diagram Rendering Defaults
+
+Default rendering direction is vertical.
+
+Prefer Feishu native whiteboard plus Mermaid for:
+
+1. normal flowcharts
+2. decision flowcharts
+3. state diagrams
+4. light pseudo-swimlane diagrams
+
+If the process is clearly more suitable for a formal swimlane diagram than Mermaid can express cleanly, say so explicitly instead of forcing a weak diagram.
