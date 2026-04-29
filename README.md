@@ -59,6 +59,13 @@ The current preferred child PRD style is light and page-first:
 
 The latest manually corrected Feishu PRD should be treated as the style source of truth.
 
+Style priority should follow this order:
+
+1. if the current request includes a reference PRD, follow that reference first
+2. if the user has already corrected a generated PRD, treat that corrected version as the latest style source of truth
+3. if no reference PRD is provided, fall back to the user's default Lingxi-style PRD pattern
+4. if the reference PRD is unclear, ask one focused clarification question before deciding structure or placement
+
 ## Repository Structure
 
 - `prd-writing/SKILL.md`

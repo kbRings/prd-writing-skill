@@ -29,17 +29,21 @@ Do not use this skill for technical design docs, implementation plans, or code a
    - child PRD
    - both
 3. Prefer the user's established hierarchy over a generic template.
-4. During requirement confirmation and alignment, explicitly follow the brainstorming style:
+4. Style priority is:
+   - if the user provides a reference PRD, follow that reference first
+   - if no reference PRD is provided, use the user's default Lingxi-style structure and writing rules
+   - if the reference PRD is unclear, ask one focused clarification question before deciding structure or placement
+5. During requirement confirmation and alignment, explicitly follow the brainstorming style:
    - ask one question at a time
    - prefer multiple-choice questions
    - use the answers to narrow scope before writing
-5. If the input includes prototypes, screenshots, or existing pages, extract page flow, controls, states, and validation points from them.
-6. Combine prototype evidence with the user's requirement description to infer PRD structure and content.
-7. If inputs are incomplete, do not jump straight to the PRD. First run a requirement-alignment pass and collect missing decisions.
-8. If unresolved items remain after alignment, draft the document anyway and mark them as `待确认`.
-9. Unless the user explicitly asks for discussion only, create the Feishu doc directly with Feishu CLI.
-10. If prototype screenshots or page-layout images are available, insert them into the final Feishu doc after the matching `页面布局` heading when the available Feishu CLI flow supports it.
-11. If a process diagram is needed and Feishu native whiteboard tooling is available, prefer embedding a native whiteboard block over leaving only text-based flow notes.
+6. If the input includes prototypes, screenshots, or existing pages, extract page flow, controls, states, and validation points from them.
+7. Combine prototype evidence with the user's requirement description to infer PRD structure and content.
+8. If inputs are incomplete, do not jump straight to the PRD. First run a requirement-alignment pass and collect missing decisions.
+9. If unresolved items remain after alignment, draft the document anyway and mark them as `待确认`.
+10. Unless the user explicitly asks for discussion only, create the Feishu doc directly with Feishu CLI.
+11. If prototype screenshots or page-layout images are available, insert them into the final Feishu doc after the matching `页面布局` heading when the available Feishu CLI flow supports it.
+12. If a process diagram is needed and Feishu native whiteboard tooling is available, prefer embedding a native whiteboard block over leaving only text-based flow notes.
 
 ## Default Two-Layer Structure
 
@@ -151,7 +155,8 @@ When using Feishu CLI for image insertion:
 1. generate the PRD body first
 2. map each prototype image to the matching page section
 3. insert each image under the corresponding `页面布局` heading
-4. if exact placement is ambiguous, ask one focused question or state the inferred placement briefly
+4. if exact placement is ambiguous, ask one focused clarification question before inserting
+5. only infer placement without asking when the reference structure is unambiguous
 
 When using Feishu CLI for process diagrams:
 
@@ -213,6 +218,11 @@ When the user provides prototype images or screenshots:
 3. after the PRD text is generated, insert the image under the corresponding `页面布局` heading when Feishu CLI is available
 4. if multiple screenshots belong to one page, preserve their order and use short captions when helpful
 5. if an image only illustrates part of a page, still place it near the matching page section instead of dropping it at the end of the doc
+6. if any of the following are unclear, stop and ask one focused placement question before inserting:
+   - one page section has multiple candidate images
+   - multiple sections could match the same image
+   - the image represents only a local module and the target section is unclear
+   - the reference PRD has repeated headings and the correct anchor cannot be determined safely
 
 Default layout-image strategy:
 
@@ -223,7 +233,11 @@ Default layout-image strategy:
 
 ## Style Priority
 
-If the user has already edited a generated Feishu PRD and asks you to learn from it, treat that edited version as the latest style source of truth.
+Use this precedence order:
+
+1. if the current request includes a reference PRD, follow that reference first
+2. if the user has already edited a generated Feishu PRD and asks you to learn from it, treat that edited version as the latest style source of truth
+3. if no reference PRD is provided, fall back to the user's default Lingxi-style PRD pattern
 
 Current preferred child PRD style is:
 
